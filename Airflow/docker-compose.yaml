@@ -1,5 +1,16 @@
 version: "3.7"
 services:
+  db:
+    image: mysql:5.7.17
+    ports:
+      - 3306:3306
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root123"
+      - "MYSQL_DATABASE=beek_test"
+      - "MYSQL_USER=test"
+      - "MYSQL_PASSWORD=test123"
+    volumes:
+      - ./data/db_schemas:/docker-entrypoint-initdb.d
   postgres:
     image: postgres:9.6
     environment:
@@ -25,6 +36,7 @@ services:
         max-file: "3"
     volumes:
       - ./dags:/usr/local/airflow/dags
+      - ./data/output_data:/home/airflow/data
     ports:
       - "6060:8080"
     command: webserver

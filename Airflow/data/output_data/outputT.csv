@@ -1,0 +1,2 @@
+user_id,payment_id,subscription_id,user_name,status,cancellation_intent,subscription_started_at,payment_status,payment_date
+1,1,1,jf23perez,1,Nothing,2021-11-24 13:56:45,Accepted,2021-11-24 13:56:45
