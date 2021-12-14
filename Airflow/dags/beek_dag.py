@@ -22,6 +22,7 @@ default_args = {
     'tzinfo': tz,
     'start_date': datetime(2021, 12, 1, tzinfo=tz)
 }
+
 dag = DAG(
     'beek_test_etl',
     default_args=default_args,
@@ -59,7 +60,7 @@ def get_csv(**kwargs):
 
 beek_etl = PythonOperator(
     dag=dag,
-    task_id="select_csv",
+    task_id="get_csv",
     python_callable=get_csv
 )
 
